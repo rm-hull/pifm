@@ -1,14 +1,6 @@
 Turning the Raspberry Pi Into an FM Transmitter
 ===============================================
 
-<div class="floatright">
-<p><br>
-</p>
-<object width="425" height="350"><param name="movie" value="http://www.youtube.com/v/ekcdAX53-S8#!"><param name="wmode" value="transparent"><embed src="http://www.youtube.com/v/ekcdAX53-S8#!" type="application/x-shockwave-flash" wmode="transparent" width="425" height="350"></object>
-<p>from a <a href="http://blog.makezine.com/2012/12/10/raspberry-pi-as-an-fm-transmitter/?parent=Electronics" class="external text" rel="nofollow">post on MAKE</a> by Matt Richardson
-</p>
-</div>
-
 Steps to play sound:
 --------------------
 **(Created by Oliver Mattos and Oskar Weigl. Code is GPL)** 
@@ -75,4 +67,10 @@ This is a copy of the original documentation and code from
 http://www.icrobotics.co.uk/wiki/index.php/Turning_the_Raspberry_Pi_Into_an_FM_Transmitter, 
 all rights of the original authors reserved.
 
+References
+----------
+* http://www.icrobotics.co.uk/wiki/index.php/Turning_the_Raspberry_Pi_Into_an_FM_Transmitter
 
+* http://blog.makezine.com/2012/12/10/raspberry-pi-as-an-fm-transmitter/?parent=Electronics
+
+* http://www.youtube.com/v/ekcdAX53-S8#! 
