@@ -1,10 +1,10 @@
 Turning the Raspberry Pi Into an FM Transmitter
 ===============================================
 
+(Created by Oliver Mattos and Oskar Weigl. Code is GPL)
+
 Steps to play sound:
 --------------------
-**(Created by Oliver Mattos and Oskar Weigl. Code is GPL)** 
-
 Download the code here, and compile:
 
     make clean all
