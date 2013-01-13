@@ -29,7 +29,9 @@ as 5.000 (in hex), and m is the added audio modulation. This chooses how the
 you wanted a 99.0Mhz carrier, you would divide by 5.050505 (decimal), which in
 hex is 5.0CF. Hence if you changed the number on that line to 0x50CF you should
 be able to get a 99.0Mhz FM signal. Most radio receivers want a signal to be a
-multiple of 0.1 MHz to work properly.  The details of how it works
+multiple of 0.1 MHz to work properly.  
+
+**The details of how it works**
 
 Below is some code that was hacked together over a few hours at the [Code Club
 pihack](http://blog.codeclub.org.uk/blog/brief/). It uses the hardware on the 
