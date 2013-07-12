@@ -75,7 +75,7 @@ void getRealMemPage(void** vAddr, void** pAddr) {
     
     unsigned long long frameinfo;
     
-    int fp = open("/proc/self/pagemap", 'r');
+    int fp = open("/proc/self/pagemap", O_RDONLY);
     lseek(fp, ((int)a)/4096*8, SEEK_SET);
     read(fp, &frameinfo, sizeof(frameinfo));
     
@@ -162,7 +162,7 @@ struct PageInfo instrs[1024];
 void playWav(char* filename, float samplerate)
 {
     int fp= STDIN_FILENO;
-    if(filename[0]!='-') fp = open(filename, 'r');
+    if(filename[0]!='-') fp = open(filename, O_RDONLY);
     //int sz = lseek(fp, 0L, SEEK_END);
     //lseek(fp, 0L, SEEK_SET);
     //short* data = (short*)malloc(sz);
