@@ -1,3 +1,7 @@
+## UPDATE
+### https://github.com/richardghirst/PiBits/blob/master/PiFmDma/PiFmDma.c presents a rewrite using DMA, which uses much less CPU than this version. Please use that version in preference.
+
+
 Turning the Raspberry Pi Into an FM Transmitter
 ===============================================
 
