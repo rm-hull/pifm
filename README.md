@@ -68,7 +68,7 @@ http://www.icrobotics.co.uk/wiki/index.php/Turning_the_Raspberry_Pi_Into_an_FM_T
 
 The only changes are removal of the download link (since the source can be downloaded here), and formatting in Github Markdown.
 
-All rights of the original authors reserved.  It is not currently clear what license, if any, the authors have granted to use, modify, or even compile this code.  Use at your own risk.
+All rights of the original authors reserved.
 
 ###References
 
