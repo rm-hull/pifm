@@ -1,5 +1,6 @@
 from distutils.core import setup
 from distutils.command.install import install as DistutilsInstall
+from distutils.command.build import build as DistutilsBuild
 
 import subprocess
 import os
@@ -8,9 +9,13 @@ import PiFM
 
 class MyInstall(DistutilsInstall):
     def run(self):
-        run_makefile()
         DistutilsInstall.run(self)
         do_post_install()
+
+class MyBuild(DistutilsBuild):
+    def run(self):
+        run_makefile()
+        DistutilsBuild.run(self)
 
 def run_makefile():
     subprocess.call(["make", "all"])
@@ -27,7 +32,7 @@ setup (name = "PiFM",
     url = PiFM.__url__,
     keywords = ['RaspberryPi', 'FM', 'Radio', 'FM Transmitter'],
     packages = ['PiFM'],
-    cmdclass={'install': MyInstall},
+    cmdclass={'install': MyInstall, 'build': MyBuild},
     data_files = [('bin', ['pifm'])],
 )
 
