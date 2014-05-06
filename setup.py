@@ -4,6 +4,8 @@ from distutils.command.install import install as DistutilsInstall
 import subprocess
 import os
 
+import PiFM
+
 class MyInstall(DistutilsInstall):
     def run(self):
         run_makefile()
@@ -16,12 +18,15 @@ def run_makefile():
 def do_post_install():
     subprocess.call(["make", "clean"])
 
-setup (name = "PiFm",
-	version = '1.0',
-	description = "Turn your Rasberry Pi into an FM Transmitter",
-	author = ["Oliver Mattos", "Oskar Weigl"],
-	license = "GPLv2",
-	url = "http://www.icrobotics.co.uk/wiki/index.php/Turning_the_Raspberry_Pi_Into_an_FM_Transmitter",
+setup (name = "PiFM",
+    version = PiFM.__version__,
+    description = PiFM.__doc__,
+    author = PiFM.__author__,
+    author_email =  PiFM.__author_email__,
+    license = PiFM.__license__,
+    url = PiFM.__url__,
+    keywords = ['RaspberryPi', 'FM', 'Radio', 'FM Transmitter'],
+    packages = ['PiFM'],
     cmdclass={'install': MyInstall},
     data_files = [('bin', ['pifm'])],
 )
