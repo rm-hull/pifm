@@ -29,6 +29,7 @@
 #include <sys/mman.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <sys/poll.h>
 #include <sys/time.h>
 #include <signal.h>
 #include <unistd.h>
@@ -535,10 +536,13 @@ public:
 void playWav(char* filename, float samplerate, bool stereo)
 {
     int fp= STDIN_FILENO;
-    if(filename[0]!='-') fp = open(filename, O_RDONLY);
+    if(filename[0]!='-') fp = open(filename, O_RDONLY | O_NONBLOCK);
     
     char data[1024];
-    
+    char emptyData[1024*128];
+    struct pollfd poll_fp;
+    memset(&emptyData, 0, sizeof(emptyData));
+
     SampleSink* ss;
     
     if (stereo) {
@@ -558,10 +562,26 @@ void playWav(char* filename, float samplerate, bool stereo)
        read(fp, &data, 2);  // read past header
     
     int readBytes;
-    while (readBytes = read(fp, &data, 1024)) {
-        
-        ss->consume(data, readBytes);
+    int cleared = 0;
+
+    while(true) {
+      poll_fp.fd = fp;
+      poll_fp.events = POLLIN;
+
+      poll(&poll_fp, 1, 150);
+    
+      if(poll_fp.revents & POLLIN) {
+          readBytes = read(fp, &data, 1024);
+          ss->consume(data, readBytes);
+          cleared = 0;
+      } else {
+          if(cleared == 0) {
+              ss->consume(emptyData, sizeof(emptyData));
+              cleared = 1;
+          }
+      }
     }
+
     close(fp);
 }
 
